@@ -14,9 +14,7 @@ public class Libro {
         this.categoria = categoria;
     }
 
-
-
-
-
-
+    public Integer getIsbn() {
+        return isbn;
+    }
 }
