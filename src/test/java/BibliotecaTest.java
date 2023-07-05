@@ -12,8 +12,8 @@ public class BibliotecaTest {
     void addBookTest() {
         //arrange
         Biblioteca biblioteca = new Biblioteca("Nacional");
-        Libro harryPotter1 = new Libro("Harry Potter 1", 001002003, "J. K. Rowling", "LITERATURA");
-        Libro harryPotter2 = new Libro("Harry Potter 2", 001002004, "J. K. Rowling", "LITERATURA");
+        Libro harryPotter1 = new Libro("Harry Potter 1", 1002003, "J. K. Rowling", "LITERATURA");
+        Libro harryPotter2 = new Libro("Harry Potter 2", 1002004, "J. K. Rowling", "LITERATURA");
 
         //act
         biblioteca.addBooks(harryPotter1);
@@ -26,7 +26,7 @@ public class BibliotecaTest {
         void addBookTestFail() {
             //arrange
             Biblioteca biblioteca = new Biblioteca("Nacional");
-            Libro harryPotter1 = new Libro("Harry Potter 1", 001002003, "J. K. Rowling", "LITERATURA");
+            Libro harryPotter1 = new Libro("Harry Potter 1", 1002003, "J. K. Rowling", "LITERATURA");
 
             //act
             biblioteca.addBooks(harryPotter1);
