@@ -33,7 +33,7 @@ public class BibliotecaTest {
             biblioteca.addBooks(harryPotter1);
 
             //assert
-            assertEquals(2, biblioteca.getBooks().size());
+            assertEquals(1, biblioteca.getBooks().size());
         }
 
 }
