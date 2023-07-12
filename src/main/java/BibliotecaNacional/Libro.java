@@ -20,6 +20,10 @@ public class Libro {
         return isbn;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

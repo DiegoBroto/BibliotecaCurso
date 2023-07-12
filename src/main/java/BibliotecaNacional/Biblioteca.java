@@ -37,4 +37,16 @@ public class Biblioteca {
         });
         return booksIsbn;
     }
+
+    public List<Libro> getBooksCat(String categoria) {
+        List<Libro> bookCat = new ArrayList<>();
+        this.libros.forEach(libro -> {
+            if (libro.getCategoria().equals(categoria)) {
+                bookCat.add(libro);
+                System.out.println("libro x cat = " + libro.getCategoria());
+                System.out.println("libro = " + libro);
+            }
+        });
+        return bookCat;
+    }
 }
