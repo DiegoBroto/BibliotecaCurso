@@ -1,5 +1,6 @@
 import BibliotecaNacional.Biblioteca;
 import BibliotecaNacional.Libro;
+import BibliotecaNacional.Socio;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -51,6 +52,7 @@ public class BibliotecaTest {
         assertEquals(1, biblioteca.getBooksIsbn(1002003).size());
 
     }
+
     @Test
     void findBooksIsbnTestFail() {
         //arrange
@@ -63,9 +65,10 @@ public class BibliotecaTest {
         assertEquals(0, biblioteca.getBooksIsbn(1002004).size());
 
     }
+
     //3.Dado una categoría, permitir listar todos los libros correspondientes a esa categoría.
     @Test
-    void FindBookCatTest() {
+    void findBookCatTest() {
         //arrange
         Biblioteca biblioteca = new Biblioteca("Nacional");
         Libro harryPotter1 = new Libro("Harry Potter 1", 1002003, "J. K. Rowling", "LITERATURA");
@@ -77,11 +80,12 @@ public class BibliotecaTest {
         biblioteca.addBooks(matematica);
 
         //assert
-        assertEquals(2,biblioteca.getBooksCat("LITERATURA").size());
-        assertEquals(1,biblioteca.getBooksCat("MANUAL").size());
+        assertEquals(2, biblioteca.getBooksCat("LITERATURA").size());
+        assertEquals(1, biblioteca.getBooksCat("MANUAL").size());
     }
+
     @Test
-    void FindBookCatTestFail() {
+    void findBookCatTestFail() {
         //arrange
         Biblioteca biblioteca = new Biblioteca("Nacional");
         Libro harryPotter1 = new Libro("Harry Potter 1", 1002003, "J. K. Rowling", "LITERATURA");
@@ -93,7 +97,34 @@ public class BibliotecaTest {
         biblioteca.addBooks(matematica);
 
         //assert
-        assertEquals(0,biblioteca.getBooksCat("ACCION").size());
+        assertEquals(0, biblioteca.getBooksCat("ACCION").size());
     }
 
+    //4.Incorporar un estudiante o socio a la biblioteca registrando un tipo y número de documento, nombre y apellido, y domicilio.
+    @Test
+    void addSocioTest() {
+        //arrange
+        Biblioteca biblioteca = new Biblioteca("Nacional");
+        Socio emilianoPerez = new Socio("DNI", 34504576, "Emiliano", "Perez", "La Matanza");
+        Socio diegoBroto = new Socio("DNI", 29508130, "Diego", "Broto", "Hudson");
+
+        //act
+        biblioteca.addSocio(emilianoPerez);
+        biblioteca.addSocio(diegoBroto);
+        //assert
+        assertEquals(2, biblioteca.getSocio().size());
+    }
+
+    @Test
+    void addSocioFailTest() {
+        //arrange
+        Biblioteca biblioteca = new Biblioteca("Nacional");
+        Socio emilianoPerez = new Socio("DNI", 34504576, "Emiliano", "Perez", "La Matanza");
+        //act
+        biblioteca.addSocio(emilianoPerez);
+        biblioteca.addSocio(emilianoPerez);
+        //assert
+        assertEquals(1, biblioteca.getSocio().size());
+    }
+    //5.Un estudiante solicita prestado un libro y su plazo límite de devolución es dentro de 15 días corridos, teniendo presente que exista un libro disponible.
 }

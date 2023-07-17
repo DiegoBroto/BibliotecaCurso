@@ -7,11 +7,13 @@ import java.util.List;
 public class Biblioteca {
 
     private ArrayList<Libro> libros;
+    private ArrayList<Socio> socios;
     private String nombre;
 
     public Biblioteca(String nombre) {
         this.nombre = nombre;
         this.libros = new ArrayList<>();
+        this.socios = new ArrayList<>();
 
     }
 
@@ -48,5 +50,16 @@ public class Biblioteca {
             }
         });
         return bookCat;
+    }
+
+    public void addSocio(Socio estudiante) {
+        if (!this.socios.contains(estudiante)) {
+            this.socios.add(estudiante);
+
+        }
+    }
+
+    public List<Socio> getSocio() {
+        return new ArrayList<>(socios);
     }
 }
